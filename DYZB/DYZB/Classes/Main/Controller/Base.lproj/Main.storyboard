@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="J3k-fP-Cgb">
             <objects>
-                <tabBarController storyboardIdentifier="Root" id="xke-N3-GMv" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Root" id="xke-N3-GMv" customClass="MainViewController" customModule="DYZB" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7A6-j0-2mS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -19,7 +19,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2D-QR-YVn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4593" y="348"/>
+            <point key="canvasLocation" x="-4945" y="315"/>
         </scene>
     </scenes>
 </document>
