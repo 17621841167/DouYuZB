@@ -8,8 +8,24 @@
 
 import UIKit
 
+
+//MARK: - 定义协议
+protocol PageTitleViewDelegate : class { // class 表示协议只能被类遵守
+    func pageTitleView(titleView : PageTitleView, selectIndex index : Int)
+}
+//MARK: - 定义常量
 private let kScrollLinH : CGFloat = 2
+private let kNormalColor : (CGFloat, CGFloat ,CGFloat) = (85,85,85)//灰色
+private let kSelectColor : (CGFloat, CGFloat ,CGFloat) = (255,128,0)//橘色
+
+//MARK: - 定义PageTitleView类
 class PageTitleView: UIView {
+    
+    //MARK: -定义属性
+    private var currentIndex : Int = 0
+    
+    private var titles : [String]
+    weak var delegate : PageTitleViewDelegate?
     //MARK: -懒加载属性
     
     private lazy var titleLabels : [UILabel] = [UILabel]()
@@ -22,14 +38,13 @@ class PageTitleView: UIView {
         return scrollView
     }()
     private var scollLine : UIView = {
-       let scollLine = UIView()
+        let scollLine = UIView()
         
         scollLine.backgroundColor = UIColor.orange
-         return scollLine
+        return scollLine
     }()
     
-    //MARK: -定义属性
-    private var titles : [String]
+    
     
     //MARK: -自定义构造函数
     init(frame: CGRect, titles : [String] ) {
@@ -75,16 +90,21 @@ extension PageTitleView {
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16)
-            label.textColor = UIColor.darkGray
+            label.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
             label.textAlignment = .center
             //3设置label.frame
             let labelX : CGFloat = labelW * CGFloat(index)
-
+            
             label.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
             
             //4.将label添加到scrollView 中
             scrollView.addSubview(label)
             titleLabels.append(label)
+            
+            //5.给label添加手势
+            label.isUserInteractionEnabled = true
+            let tapGes = UITapGestureRecognizer.init(target: self, action: #selector(self.titleLabelClick(tapGes:)))
+            label.addGestureRecognizer(tapGes)
         }
     }
     
@@ -99,10 +119,64 @@ extension PageTitleView {
         //2.添加scollLine
         //2.1 获取第一个label
         guard let firstLabel = titleLabels.first else { return }
-        firstLabel.textColor = UIColor.orange
+        firstLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
         scrollView.addSubview(scollLine)
         
         
         scollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLinH, width: firstLabel.frame.width, height: kScrollLinH)
+    }
+}
+//MARK: - 监听label点击
+extension PageTitleView {
+    @objc private func titleLabelClick(tapGes : UITapGestureRecognizer) {
+        //1.获取当前label的下标值
+        guard let currentLabel =  tapGes.view as? UILabel else { return }
+        
+        //2.获取之前的label
+        
+        let oldLabel = titleLabels[currentIndex]
+        //3.切换文字的颜色
+        currentLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
+        oldLabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
+        
+        //4.保存最新的label下标值
+        currentIndex  = currentLabel.tag
+        
+        
+        //5.滚动条位置发生改变
+        
+        let scrollLineX = CGFloat(currentLabel.tag) * scollLine.frame.width
+        UIView.animate(withDuration: 0.15) {
+            self.scollLine.frame.origin.x = scrollLineX
+        }
+        
+        //6.通知代理
+        delegate?.pageTitleView(titleView: self, selectIndex: currentIndex)
+        
+    }
+}
+//MARK: - 对外暴露的方法
+extension PageTitleView {
+    func setTitleWithProgross(progross : CGFloat, sourceIndex : Int, targetIndex : Int){
+        //1.取出soureLabel/targetLabel
+        let soureLabel = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+        
+        //2.处理滑块逻辑
+        let moveTotalX = targetLabel.frame.origin.x - soureLabel.frame.origin.x
+        let moveX = moveTotalX * progross
+        scollLine.frame.origin.x = soureLabel.frame.origin.x + moveX
+        
+        //3.颜色渐变(复杂)
+        //3.1 取出颜色变化的范围
+        let colorDelta : (CGFloat , CGFloat, CGFloat) = (kSelectColor.0 - kNormalColor.0, kSelectColor.1 - kNormalColor.1 , kSelectColor.2 - kNormalColor.2)
+        //3.2 变化soureLabel
+        soureLabel.textColor = UIColor(r: kSelectColor.0 - colorDelta.0 * progross, g: kSelectColor.1 - colorDelta.1 * progross, b: kSelectColor.2 - colorDelta.2 * progross)
+
+        //3.3 变化targetLabel
+        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorDelta.0 * progross, g: kNormalColor.1 + colorDelta.1 * progross, b: kNormalColor.2 + colorDelta.2 * progross)
+     
+        //4记录最新的index
+        currentIndex = targetIndex
     }
 }
