@@ -24,11 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainStoryBoard = UIStoryboard.init(name: "Main", bundle: nil)
         
         let vc = mainStoryBoard.instantiateViewController(withIdentifier: "Root")
-   
-
         window.rootViewController = vc;
         window.makeKeyAndVisible()
-    
+        
+        UITabBar.appearance().tintColor = UIColor.orange
+
         return true
     }
 

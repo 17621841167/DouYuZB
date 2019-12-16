@@ -27,10 +27,10 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小马哥IT教育" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2B-8o-22y">
                         <rect key="frame" x="27" y="171" width="67" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_default" translatesAutoresizingMaskIntoConstraints="NO" id="4SL-8B-F86">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_default" translatesAutoresizingMaskIntoConstraints="NO" id="4SL-8B-F86">
                         <rect key="frame" x="0.0" y="0.0" width="276" height="166"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -38,24 +38,54 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Va-Kb-o7l">
+                        <rect key="frame" x="188" y="138" width="76" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="u5V-Tn-tX0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="6666在线" image="Image_online">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHU-XX-WgB">
+                        <rect key="frame" x="6" y="142" width="27" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="fZw-zt-n8I"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="4SL-8B-F86" secondAttribute="trailing" id="5I8-bc-hIQ"/>
                 <constraint firstItem="V2B-8o-22y" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="27" id="CZ1-7d-MUu"/>
                 <constraint firstItem="naI-lH-pF8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Cry-cN-mZW"/>
+                <constraint firstItem="naI-lH-pF8" firstAttribute="top" secondItem="IHU-XX-WgB" secondAttribute="bottom" constant="13" id="G4t-PA-R1z"/>
                 <constraint firstAttribute="bottom" secondItem="naI-lH-pF8" secondAttribute="bottom" constant="10" id="U1n-Ht-I8b"/>
                 <constraint firstItem="V2B-8o-22y" firstAttribute="centerY" secondItem="naI-lH-pF8" secondAttribute="centerY" id="WaZ-nU-BRW"/>
                 <constraint firstItem="4SL-8B-F86" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gdg-IR-MR3"/>
+                <constraint firstItem="7Va-Kb-o7l" firstAttribute="bottom" secondItem="4SL-8B-F86" secondAttribute="bottom" id="kOy-v2-754"/>
+                <constraint firstItem="IHU-XX-WgB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="rTm-ua-Vu1"/>
                 <constraint firstItem="naI-lH-pF8" firstAttribute="top" secondItem="4SL-8B-F86" secondAttribute="bottom" constant="5" id="sb9-0g-Y8r"/>
                 <constraint firstItem="4SL-8B-F86" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sow-8x-8GZ"/>
+                <constraint firstAttribute="trailing" secondItem="7Va-Kb-o7l" secondAttribute="trailing" constant="12" id="uWp-zY-tA1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="276" height="195"/>
+            <connections>
+                <outlet property="iconImageView" destination="4SL-8B-F86" id="PIF-u5-c9T"/>
+                <outlet property="nickName" destination="IHU-XX-WgB" id="Ufb-sk-6jN"/>
+                <outlet property="onLineBtn" destination="7Va-Kb-o7l" id="iba-Oy-T6x"/>
+                <outlet property="roomNameLabel" destination="V2B-8o-22y" id="AxN-tI-8T8"/>
+            </connections>
             <point key="canvasLocation" x="89.855072463768124" y="141.62946428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Image_online" width="16" height="16"/>
         <image name="Img_default" width="172.5" height="103.5"/>
         <image name="btn_column_normal" width="24" height="24"/>
     </resources>

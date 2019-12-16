@@ -28,7 +28,9 @@
         <scene sceneID="TTX-M3-lWP">
             <objects>
                 <navigationController title="直播" automaticallyAdjustsScrollViewInsets="NO" id="6OL-VI-IsM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="直播" image="btn_column_normal" selectedImage="btn_column_selected" id="HQk-dE-2PZ"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nJw-gS-nfN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -43,4 +45,8 @@
             <point key="canvasLocation" x="-492" y="174.96251874062969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_column_normal" width="24" height="24"/>
+        <image name="btn_column_selected" width="24" height="24"/>
+    </resources>
 </document>

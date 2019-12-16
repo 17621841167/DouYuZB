@@ -28,7 +28,9 @@
         <scene sceneID="Nx6-jh-4Ej">
             <objects>
                 <navigationController title="关注" automaticallyAdjustsScrollViewInsets="NO" id="Dya-O5-xwS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="关注" image="btn_live_normal" selectedImage="btn_live_selected" id="dLq-lA-bbA"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KWX-ST-av5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -43,4 +45,8 @@
             <point key="canvasLocation" x="-90.400000000000006" y="102.99850074962519"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_live_normal" width="30" height="24"/>
+        <image name="btn_live_selected" width="30" height="24"/>
+    </resources>
 </document>

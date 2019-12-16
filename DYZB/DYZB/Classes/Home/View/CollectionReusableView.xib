@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="CollectionReusableView" customModule="DYZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-kc-WIg">
@@ -22,14 +22,13 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_header_phone" translatesAutoresizingMaskIntoConstraints="NO" id="mYQ-ss-qBd">
-                    <rect key="frame" x="0.0" y="21" width="18" height="18"/>
+                    <rect key="frame" x="10" y="21" width="18" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="18" id="VuW-Uv-9rb"/>
                         <constraint firstAttribute="height" constant="18" id="gi1-HR-phG"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="颜值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2p-fF-g9N">
-                    <rect key="frame" x="26" y="20" width="33" height="20"/>
+                    <rect key="frame" x="36" y="20" width="33" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,11 +40,12 @@
                     </state>
                 </button>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="IPi-ja-Vgo" secondAttribute="trailing" constant="10" id="0Hr-FY-LTs"/>
                 <constraint firstItem="M2p-fF-g9N" firstAttribute="leading" secondItem="mYQ-ss-qBd" secondAttribute="trailing" constant="8" id="65b-aX-KQC"/>
                 <constraint firstItem="BO8-kc-WIg" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="7D8-CI-X45"/>
-                <constraint firstItem="mYQ-ss-qBd" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="Fq3-Kd-kA7"/>
+                <constraint firstItem="mYQ-ss-qBd" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="Fq3-Kd-kA7"/>
                 <constraint firstItem="mYQ-ss-qBd" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="21" id="Gtv-FE-Zre"/>
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="BO8-kc-WIg" secondAttribute="trailing" id="UDe-De-DPn"/>
                 <constraint firstItem="M2p-fF-g9N" firstAttribute="centerY" secondItem="mYQ-ss-qBd" secondAttribute="centerY" id="cSd-e5-5N0"/>
@@ -53,7 +53,12 @@
                 <constraint firstItem="BO8-kc-WIg" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="tF6-kg-9HI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
-            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+            <connections>
+                <outlet property="iconImageView" destination="mYQ-ss-qBd" id="qTR-sY-CcX"/>
+                <outlet property="moreBtn" destination="IPi-ja-Vgo" id="l6I-zm-jSU"/>
+                <outlet property="titleLabel" destination="M2p-fF-g9N" id="G5E-QB-Y9n"/>
+            </connections>
+            <point key="canvasLocation" x="250.72463768115944" y="151.00446428571428"/>
         </collectionReusableView>
     </objects>
     <resources>

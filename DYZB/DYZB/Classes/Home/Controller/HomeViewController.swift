@@ -27,7 +27,10 @@ class HomeViewController: UIViewController {
         
         var childVcs = [UIViewController]()
         childVcs.append(RecommemdViewController())
-        for _ in 0..<3{
+        childVcs.append(GameViewController())
+        childVcs.append(AmuseViewController())
+
+        for _ in 0..<1{
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             childVcs.append(vc)
@@ -73,18 +76,14 @@ extension HomeViewController{
  
         //1.设置左边item
         let btn = UIButton()
-        btn.setImage(UIImage(named: ""), for: .normal)
+        btn.setImage(UIImage(named: "logo"), for: .normal)
         btn.sizeToFit()
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
         //2.设置右侧的item
         let size = CGSize(width: 40, height: 40 )
   
-//        let historyItem = UIBarButtonItem.createItem(imageName: "kw_ic_tab_fenxiang", hightImageName: "kw_ic_tab_fenxiang_seleced", size: size)
-//
-//        let searchItem = UIBarButtonItem.createItem(imageName: "kw_ic_tab_fenxiang", hightImageName: "kw_ic_tab_fenxiang_seleced", size: size)
-//
-//        let qrcpdeItem = UIBarButtonItem.createItem(imageName: "kw_ic_tab_fenxiang", hightImageName: "kw_ic_tab_fenxiang_seleced", size: size)
-        let historyItem = UIBarButtonItem(imageName: "kw_ic_tab_fenxiang", hightImageName: "kw_ic_tab_fenxiang_seleced", size: size)
+
+        let historyItem = UIBarButtonItem(imageName: "btn_home_normal", hightImageName: "btn_home_normal_selected", size: size)
          let searchItem = UIBarButtonItem(imageName: "kw_ic_tab_fenxiang", hightImageName: "kw_ic_tab_fenxiang_seleced", size: size)
          let qrcpdeItem = UIBarButtonItem(imageName: "kw_ic_tab_fenxiang", hightImageName: "kw_ic_tab_fenxiang_seleced", size: size)
         navigationItem.rightBarButtonItems = [historyItem,searchItem,qrcpdeItem]

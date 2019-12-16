@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnchorGroup: NSObject {
+class AnchorGroup: BaseGameModel {
     /// 该组中对应的房间信息
     @objc  var room_list : [[String : NSObject]]? {
         didSet{
@@ -21,31 +21,31 @@ class AnchorGroup: NSObject {
         }
     }
         /// 组显示的图标
-   @objc  var tag_name : String = ""
+//   @objc  var tag_name : String = ""
     
     @objc var icon_name : String = "home_header_normal"
-    
-    lazy var anchors : [AnchorModel] = [AnchorModel]()
+//    @objc var icon_url : String = ""
+     @objc lazy var anchors : [AnchorModel] = [AnchorModel]()
 
-    override init() {
-        
-    }
-    init(dict : [String : Any]) {
-        super.init()
-        
-        setValuesForKeys(dict)
-        
-    }
-     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
-    
-//    override func setValue(_ value: Any?, forKey key: String) {
-//        if key == "room_list" {
-//            if let daraArray = value as? [[String : NSObject]] {
-//                for dict in daraArray {
-//                    anchors.append(AnchorModel(dict: dict))
-//                }
-//            }
-//        }
+//    override init() {
+//        
 //    }
+//    init(dict : [String : Any]) {
+//        super.init()
+//        
+//        setValuesForKeys(dict)
+//        
+//    }
+//     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
+//    
+////    override func setValue(_ value: Any?, forKey key: String) {
+////        if key == "room_list" {
+////            if let daraArray = value as? [[String : NSObject]] {
+////                for dict in daraArray {
+////                    anchors.append(AnchorModel(dict: dict))
+////                }
+////            }
+////        }
+////    }
 
 }

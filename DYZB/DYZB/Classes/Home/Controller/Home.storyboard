@@ -22,13 +22,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oah-ML-JTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="126"/>
+            <point key="canvasLocation" x="369" y="98"/>
         </scene>
         <!--首页-->
         <scene sceneID="XZw-sm-Au6">
             <objects>
                 <navigationController title="首页" automaticallyAdjustsScrollViewInsets="NO" id="Lt5-tJ-7FG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" image="btn_home_normal" selectedImage="btn_home_selected" id="Gi6-Md-PU4"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BPl-oy-yLC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -40,7 +42,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6VT-DW-gOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="125"/>
+            <point key="canvasLocation" x="-370" y="98"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_home_normal" width="24" height="24"/>
+        <image name="btn_home_selected" width="24" height="24"/>
+    </resources>
 </document>
